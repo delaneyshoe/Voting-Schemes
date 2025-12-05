@@ -1,0 +1,417 @@
+:: StoryTitle
+Voting Schemas
+
+
+:: StoryData
+{
+  "ifid": "16317F92-6B55-495F-B49C-8411428070A3",
+  "format": "Harlowe",
+  "format-version": "3.3.9",
+  "start": "Start",
+  "zoom": 1
+}
+
+
+:: \ Borda Count {"position":"550,400","size":"100,100"}
+Bracken Library is intense — quiet, analytical, almost ominous.
+
+Posters say:  
+"We're using a *Borda count*. Rank all candidates. Points decide everything."
+
+First place is worth 4 points, second is worth 3, and so on.
+
+Preferences pour in:
+
+**Abigail**: 1990 points
+**Bailey**: 1520 points
+**Chris**: 1550 points
+**Damon**: 2040 points
+
+Whiteboards fill with equations and strategy debates.
+
+When the points settle, (text-style: "rumble")[**Damon wins**.]
+
+Gasps ripple through the room.
+
+"This rewards broad support," someone mutters.  
+"Not passion."
+
+What next?
+
+[[Verify the count.]] 
+[[Leave Bracken Library.->Rooms]]
+[[Reflect on Borda.]]
+(set: $visitedBorda to true)
+
+
+
+:: \ Elimination {"position":"925,200","size":"100,100"}
+Pruis Hall is packed.  
+Lights dim. A banner hangs:  
+"*Plurality with Elimination* — Survive or Fall."
+
+Round 1 results appear:
+
+**Abigail**: 210  
+**Bailey**: 270  
+**Chris**: 150  
+**Damon**: 80  
+
+Damon is eliminated. His supporters, while frustrated, are excited that they get to reassign their vote.
+
+[[Verify the count.]] 
+[[Go to round two. ->Round Two]]
+
+(set: $visitedElimination to true)
+
+
+:: \ Pairwise Comparison {"position":"675,400","size":"100,100"}
+You enter the Student Center. Dim lights, strategy maps, and polling data are everywhere.
+
+A student strategist greets you:  
+"Here, we're using *pairwise comparison*. Each candidate faces every other candidate head-to-head. No hiding."
+
+Each voter decides all six match-ups when they rank the candidates.
+
+Here's how many match-ups each candidate won
+**Abigail**: 1280
+**Bailey**: 810
+**Chris**: 840
+**Damon**: 1250
+
+The result:  
+(text-style: "rumble")[**Abigail wins.**]
+
+Cheers erupt.  
+Others whisper: “This system punishes polarizing candidates.”
+
+Your move?
+
+[[Verify the count.]] 
+[[Leave the Student Center. ->Rooms]]
+[[Reflect on pairwise.]]
+
+
+(set: $visitedPairwise to true)
+
+
+:: \ Plurality {"position":"425,400","size":"100,100"}
+The Atrium is buzzing with chaos.  
+Volunteers thrust ballots into hands and shout directions.
+
+"We're using a *plurality* system. You get one vote; only first place matters. Whoever gets the most wins!"
+
+A projector flashes the results:
+
+**Abigail**: 210
+**Bailey**: 270
+**Chris**: 150
+**Damon**: 80
+
+The hall explodes. (text-style: "rumble")[**Bailey wins**.]
+
+Abigail supporters shout, "Split vote!"  
+Chris’s campaign denounces this as “a disastrous breakdown of representation.”
+
+Do you do now?
+
+[[Verify the count.]] 
+[[Leave the Atrium. ->Rooms]]
+[[Reflect on plurality.]]
+(set: $visitedPlurality to true)
+
+
+:: Arrival {"position":"600,175","size":"100,100"}
+
+You arrive on campus only to discover something shocking: each building is using a different method to count the votes across campus. The winner depends on which counting method you use.
+
+The stakes are high.
+
+The campus is divided.
+
+And you must choose which voting system to walk into.
+
+[[The Atrium -> Plurality]]
+[[Bracken Library -> Borda Count]]
+[[The Student Center -> Pairwise Comparison]]
+[[Pruis Hall -> Elimination]]
+
+
+
+:: Epilogue {"position":"575,700","size":"100,100"}
+You step into the cool night air.
+
+Four buildings.  
+Four counting systems.  
+Four winners.
+
+Your phone buzzes with a campus-wide poll:  
+**"Which voting method should Ball State University use to decide the winner?"**
+
+You smile. Now *you* know the real power behind the results.
+
+THE END.
+
+[[Return to Start|Start]]
+
+
+:: Reflect on Borda. {"position":"550,525","size":"100,100"}
+The Borda Count favors compromise — but the point system is arbitrary.
+
+First place gets double the amount of points as third... 
+Do all the voters really like their first place choice twice as much as their third?
+
+*Does this kind of compromise make the election fairer?*
+
+[[Leave Bracken Library.->Rooms]]
+
+
+:: Reflect on pairwise. {"position":"675,525","size":"100,100"}
+Pairwise comparison feels like the truest test of preference.
+
+*But does beating everyone head-to-head mean you're the people’s true choice?*
+
+[[Leave the Student Center. ->Rooms]]
+
+
+:: Reflect on plurality with elimination. {"position":"800,550","size":"100,100"}
+Elimination voting reshapes elections, rewarding those who can survive the early rounds.
+
+*But is survival the same as legitimacy?*
+
+[[Leave Pruis. ->Rooms]]
+
+
+:: Reflect on plurality. {"position":"425,525","size":"100,100"}
+Plurality feels simple but brutal. Only first choices matter, and divided camps pay the price.
+
+You leave the building wondering:  
+*Is the simplest system always the fairest?*
+
+[[Leave the Atrium. ->Rooms]]
+
+
+:: Rooms {"position":"250,175","size":"100,100"}
+(if: ($visitedPlurality is true) and ($visitedBorda is true) and ($visitedPairwise is true) and ($visitedElimination is true))[
+	You’ve now visited all four voting systems.  
+	The University Student Alliance sends you an urgent message…
+    
+	[[Go to the Epilogue ->Epilogue]]
+    ]
+(else:)[
+	Next, you go to...
+	
+	[[The Atrium -> Plurality]]
+	[[Bracken Library -> Borda Count]]
+	[[The Student Center -> Pairwise Comparison]]
+	[[Pruis Hall -> Elimination]]]
+
+
+
+
+:: Round Three {"position":"925,475","size":"100,100"}
+**Bailey**: 270  
+**Chris**: 440
+
+
+Elimination reshuffles the outcome:  
+(text-style: "rumble")[**Chris wins.**]
+
+Damon’s supporters hiss:  
+“If this were Borda, he’d be president.  
+If pairwise, Abigail.  
+But under elimination… Chris wins.”
+
+Now what?
+
+[[Verify the count.]] 
+[[Leave Pruis. ->Rooms]]
+[[Reflect on plurality with elimination.]]
+
+
+:: Round Two {"position":"925,350","size":"100,100"}
+The next-ranked preferences are redistributed…
+
+**Abigail**: 210  
+**Bailey**: 270  
+**Chris**: 230
+
+Abigail is eliminated.
+
+[[Verify the count.]] 
+[[Round Three]] is up next...
+
+
+
+:: Start {"position":"600,25","size":"100,100"}
+Tonight, Ball State is electing the next *President of the University Student Alliance (USA)*. Four candidates are running:
+
+**Abigail Anderson ** — polished and dangerously ambitious  
+**Bailey Bennet** — charismatic outsider promising to disrupt the system
+**Chris Combs** — grassroots organizer with big ideals and bigger crowds
+**Damon Dennis** —  underdog with a broad appeal
+
+The results are in. Now to figure out what they mean... 
+<style>
+.table_component table {
+    border: 1px solid #dededf;
+    height: 100%;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 1px;
+    text-align: center;
+}
+.table_component th {
+    border: 1px solid #dededf;
+    background-color: #eceff1;
+    color: #000000;
+    padding: 5px;
+}
+.table_component td {
+    border: 1px solid #dededf;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 5px;
+}
+</style>
+<div class="table_component" role="region" tabindex="0">
+<table>
+    <caption>
+        <p>Voting Results</p>
+    </caption>
+    <thead>
+        <tr>
+            <th><br></th>
+            <th>270</th>
+            <th>190</th>
+            <th>80</th>
+            <th>150</th>
+            <th>20</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1st</td>
+            <td>B</td>
+            <td>A</td>
+            <td>D</td>
+            <td>C</td>
+            <td>A</td>
+        </tr>
+        <tr>
+            <td>2nd</td>
+            <td>D</td>
+            <td>D</td>
+            <td>C</td>
+            <td>A</td>
+            <td>C</td>
+        </tr>
+        <tr>
+            <td>3rd</td>
+            <td>A</td>
+            <td>C</td>
+            <td>A</td>
+            <td>D</td>
+            <td>D</td>
+        </tr>
+        <tr>
+            <td>4th</td>
+            <td>C</td>
+            <td>B</td>
+            <td>B</td>
+            <td>B</td>
+            <td>B</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</div>
+[[Got it. ->Arrival]]
+(set: $visitedPlurality to false)
+(set: $visitedBorda to false)
+(set: $visitedPairwise to false)
+(set: $visitedElimination to false)
+
+
+:: Verify the count. {"position":"250,425","size":"100,100"}
+Use the table to verify the voting results. 
+
+<style>
+.table_component table {
+    border: 1px solid #dededf;
+    height: 100%;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 1px;
+    text-align: center;
+}
+.table_component th {
+    border: 1px solid #dededf;
+    background-color: #eceff1;
+    color: #000000;
+    padding: 5px;
+}
+.table_component td {
+    border: 1px solid #dededf;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 5px;
+}
+</style>
+<div class="table_component" role="region" tabindex="0">
+<table>
+    <caption>
+        <p>Voting Results</p>
+    </caption>
+    <thead>
+        <tr>
+            <th><br></th>
+            <th>270</th>
+            <th>190</th>
+            <th>80</th>
+            <th>150</th>
+            <th>20</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1st</td>
+            <td>B</td>
+            <td>A</td>
+            <td>D</td>
+            <td>C</td>
+            <td>A</td>
+        </tr>
+        <tr>
+            <td>2nd</td>
+            <td>D</td>
+            <td>D</td>
+            <td>C</td>
+            <td>A</td>
+            <td>C</td>
+        </tr>
+        <tr>
+            <td>3rd</td>
+            <td>A</td>
+            <td>C</td>
+            <td>A</td>
+            <td>D</td>
+            <td>D</td>
+        </tr>
+        <tr>
+            <td>4th</td>
+            <td>C</td>
+            <td>B</td>
+            <td>B</td>
+            <td>B</td>
+            <td>B</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</div>
+
+(link-goto: "Back", (history:)'s last)
+
